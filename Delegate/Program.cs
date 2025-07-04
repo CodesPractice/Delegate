@@ -12,6 +12,14 @@ namespace Delegate
 
         static void Main(string[] args)
         {
+            BasicDelegate();
+
+
+            Console.ReadKey();
+        }
+
+        public static void BasicDelegate()
+        {
             // Create Greeting object and assign the SayHi method to the delegate
             Greeting greetingObj = new Greeting();
             GreetingDelegate greet = greetingObj.SayHi;
@@ -39,9 +47,6 @@ namespace Delegate
 
             // Special case: Division checks for divide-by-zero internally and returns 0 if y == 0
             Console.WriteLine("Division : " + DivNumsObj(100, 20));
-
-
-            Console.ReadKey();
         }
     }
 }
