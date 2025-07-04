@@ -1,5 +1,6 @@
 ﻿using System.Reflection.Metadata;
 using Delegate.BasicDelegates;
+using Delegate.Challange;
 using Delegate.ComposableDelegates;
 
 namespace Delegate
@@ -28,14 +29,63 @@ namespace Delegate
         //-----------------------------------------------------------------------------
 
 
+        // Delegate Challange
+
+        // Define a delegate for calculte shipping charges
+        public delegate void CalculateShippigChargesDelegate(double price);
+        //-----------------------------------------------------------------------------
+
 
         static void Main(string[] args)
         {
-             BasicDelegate();
+            CalculateShippigCharges calculateShippigCharges = new CalculateShippigCharges();
 
-             AnonymousDelegate();
+            CalculateShippigChargesDelegate CalChargesDelObjZ1 = calculateShippigCharges.CalChargesZone1;
+            CalculateShippigChargesDelegate CalChargesDelObjZ2 = calculateShippigCharges.CalChargesZone2;
+            CalculateShippigChargesDelegate CalChargesDelObjZ3 = calculateShippigCharges.CalChargesZone3;
+            CalculateShippigChargesDelegate CalChargesDelObjZ4 = calculateShippigCharges.CalChargesZone4;
 
-             ComposableDelegate();
+            string price = "";
+            string zone = "";
+
+     
+            while (price.ToLower() != "exit") 
+            {
+                Console.Write("What is the destination Zone? : ");
+                zone = Console.ReadLine()!;
+                if (zone == "exit")
+                    break;
+                Console.Write("What is the item price ? : ");
+                price = Console.ReadLine()!;
+
+                switch (zone.ToLower())
+                {
+                    case "zone1":
+                        CalChargesDelObjZ1(double.Parse(price));
+                        break;
+                    case "zone2":
+                        CalChargesDelObjZ2(double.Parse(price));
+                        break;
+                    case "zone3":
+                        CalChargesDelObjZ3(double.Parse(price));
+                        break;
+                    case "zone4":
+                        CalChargesDelObjZ4(double.Parse(price));
+                        break;
+                    default:
+                        Console.WriteLine("Invalid zone entered.");
+                        break;
+                }
+
+            } 
+
+
+
+            // BasicDelegate();
+
+            // AnonymousDelegate();
+
+            // ComposableDelegate();
 
             Console.ReadKey();
 
@@ -77,7 +127,6 @@ namespace Delegate
             Console.WriteLine("\n\n");
         }
 
-
         public static void AnonymousDelegate()
         {
             Console.WriteLine("Anonymous Delegate ");
@@ -115,6 +164,6 @@ namespace Delegate
         }
 
 
-
+        
     }
 }
