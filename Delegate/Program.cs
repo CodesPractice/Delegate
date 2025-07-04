@@ -31,17 +31,11 @@ namespace Delegate
 
         static void Main(string[] args)
         {
-            // BasicDelegate();
+             BasicDelegate();
 
-            //  AnonymousDelegate();
+             AnonymousDelegate();
 
              ComposableDelegate();
-
-
-
-
-
-
 
             Console.ReadKey();
 
@@ -49,6 +43,9 @@ namespace Delegate
 
         public static void BasicDelegate()
         {
+            Console.WriteLine("Basic Delegtes ");
+            Console.WriteLine("--------------------------------");
+
             // Create Greeting object and assign the SayHi method to the delegate
             Greeting greetingObj = new Greeting();
             GreetingDelegate greet = greetingObj.SayHi;
@@ -76,11 +73,15 @@ namespace Delegate
 
             // Special case: Division checks for divide-by-zero internally and returns 0 if y == 0
             Console.WriteLine("Division : " + DivNumsObj(100, 20));
+
+            Console.WriteLine("\n\n");
         }
 
 
         public static void AnonymousDelegate()
         {
+            Console.WriteLine("Anonymous Delegate ");
+            Console.WriteLine("--------------------------------");
             // Implement and assign an anonymous delegate directly to the delegate variable
             CalculateAgeDelegate DelObj = delegate (int birthYear)
             {
@@ -88,10 +89,15 @@ namespace Delegate
             };
             Console.WriteLine("My age is " + DelObj(1988).ToString());
 
+            Console.WriteLine("\n\n");
         }
 
         public static void ComposableDelegate()
         {
+            Console.WriteLine("Composable Delegate  ");
+            Console.WriteLine("--------------------------------");
+
+
             ComposabalCal calObj = new ComposabalCal();
 
             // Create individual delegate instances
