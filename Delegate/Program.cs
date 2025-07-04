@@ -1,4 +1,6 @@
-﻿using Delegate.BasicDelegates;
+﻿using System.Reflection.Metadata;
+using Delegate.BasicDelegates;
+using Delegate.ComposableDelegates;
 
 namespace Delegate
 {
@@ -17,13 +19,32 @@ namespace Delegate
 
         // Define a delegate for calculte age
         public delegate int CalculateAgeDelegate(int birthYear);
+        //-----------------------------------------------------------------------------
+
+        //Anonymous Delegate
+
+        // Define a delegate for calculte age
+        public delegate void CalculateTwoNumbersComposableDelegate(int val1, int val2);
+        //-----------------------------------------------------------------------------
+
 
 
         static void Main(string[] args)
         {
             // BasicDelegate();
 
-            AnonymousDelegate();
+            //  AnonymousDelegate();
+
+             ComposableDelegate();
+
+
+
+
+
+
+
+            Console.ReadKey();
+
         }
 
         public static void BasicDelegate()
@@ -67,7 +88,27 @@ namespace Delegate
             };
             Console.WriteLine("My age is " + DelObj(1988).ToString());
 
-            Console.ReadKey();
         }
+
+        public static void ComposableDelegate()
+        {
+            ComposabalCal calObj = new ComposabalCal();
+
+            // Create individual delegate instances
+            CalculateTwoNumbersComposableDelegate AddNumsObj = calObj.Addition;
+            CalculateTwoNumbersComposableDelegate DeductNumsObj = calObj.Deduction;
+            CalculateTwoNumbersComposableDelegate MulNumsObj = calObj.Multiplication;
+            CalculateTwoNumbersComposableDelegate DivNumsObj = calObj.Division;
+
+            // Compose them into one delegate
+            CalculateTwoNumbersComposableDelegate AllCal = AddNumsObj + DeductNumsObj + MulNumsObj + DivNumsObj;
+
+            // Invoke all calculations at once
+            AllCal(10, 2);
+
+        }
+
+
+
     }
 }
