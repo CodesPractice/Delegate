@@ -4,18 +4,26 @@ namespace Delegate
 {
     internal class Program
     {
+        //Basic Delegate
+
         // Define a delegate for greeting messages
         public delegate void GreetingDelegate(string name);
 
         // Define a delegate for mathematical operations on two integers
         public delegate int CalculateTwoNumbersDelegate(int val1, int val2);
+        //-----------------------------------------------------------------------------
+
+        //Anonymous Delegate
+
+        // Define a delegate for calculte age
+        public delegate int CalculateAgeDelegate(int birthYear);
+
 
         static void Main(string[] args)
         {
-            BasicDelegate();
+            // BasicDelegate();
 
-
-            Console.ReadKey();
+            AnonymousDelegate();
         }
 
         public static void BasicDelegate()
@@ -47,6 +55,19 @@ namespace Delegate
 
             // Special case: Division checks for divide-by-zero internally and returns 0 if y == 0
             Console.WriteLine("Division : " + DivNumsObj(100, 20));
+        }
+
+
+        public static void AnonymousDelegate()
+        {
+            // Implement and assign an anonymous delegate directly to the delegate variable
+            CalculateAgeDelegate DelObj = delegate (int birthYear)
+            {
+                return (2025 - birthYear);
+            };
+            Console.WriteLine("My age is " + DelObj(1988).ToString());
+
+            Console.ReadKey();
         }
     }
 }
