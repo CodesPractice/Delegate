@@ -8,6 +8,8 @@ namespace Delegate.BasicDelegates
 {
     internal class Calculation
     {
+        // implementation of delegate methods
+        // these are match to the delegate signature
         public int Addition(int x, int y)
         {
             return x + y;
