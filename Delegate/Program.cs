@@ -38,48 +38,9 @@ namespace Delegate
 
         static void Main(string[] args)
         {
-            CalculateShippigCharges calculateShippigCharges = new CalculateShippigCharges();
-
-            CalculateShippigChargesDelegate CalChargesDelObjZ1 = calculateShippigCharges.CalChargesZone1;
-            CalculateShippigChargesDelegate CalChargesDelObjZ2 = calculateShippigCharges.CalChargesZone2;
-            CalculateShippigChargesDelegate CalChargesDelObjZ3 = calculateShippigCharges.CalChargesZone3;
-            CalculateShippigChargesDelegate CalChargesDelObjZ4 = calculateShippigCharges.CalChargesZone4;
-
-            string price = "";
-            string zone = "";
-
-     
-            while (price.ToLower() != "exit") 
-            {
-                Console.Write("What is the destination Zone? : ");
-                zone = Console.ReadLine()!;
-                if (zone == "exit")
-                    break;
-                Console.Write("What is the item price ? : ");
-                price = Console.ReadLine()!;
-
-                switch (zone.ToLower())
-                {
-                    case "zone1":
-                        CalChargesDelObjZ1(double.Parse(price));
-                        break;
-                    case "zone2":
-                        CalChargesDelObjZ2(double.Parse(price));
-                        break;
-                    case "zone3":
-                        CalChargesDelObjZ3(double.Parse(price));
-                        break;
-                    case "zone4":
-                        CalChargesDelObjZ4(double.Parse(price));
-                        break;
-                    default:
-                        Console.WriteLine("Invalid zone entered.");
-                        break;
-                }
-
-            } 
 
 
+            Challenge();
 
             // BasicDelegate();
 
@@ -163,7 +124,52 @@ namespace Delegate
 
         }
 
+        public static void Challenge()
+        {
+            Console.WriteLine("Challenge Solution");
+            Console.WriteLine("--------------------------------");
 
-        
+            CalculateShippigCharges calculateShippigCharges = new CalculateShippigCharges();
+
+            CalculateShippigChargesDelegate CalChargesDelObjZ1 = calculateShippigCharges.CalChargesZone1;
+            CalculateShippigChargesDelegate CalChargesDelObjZ2 = calculateShippigCharges.CalChargesZone2;
+            CalculateShippigChargesDelegate CalChargesDelObjZ3 = calculateShippigCharges.CalChargesZone3;
+            CalculateShippigChargesDelegate CalChargesDelObjZ4 = calculateShippigCharges.CalChargesZone4;
+
+            string price = "";
+            string zone = "";
+
+
+            while (price.ToLower() != "exit")
+            {
+                Console.Write("What is the destination Zone? : ");
+                zone = Console.ReadLine()!;
+                if (zone == "exit")
+                    break;
+                Console.Write("What is the item price ? : ");
+                price = Console.ReadLine()!;
+
+                switch (zone.ToLower())
+                {
+                    case "zone1":
+                        CalChargesDelObjZ1(double.Parse(price));
+                        break;
+                    case "zone2":
+                        CalChargesDelObjZ2(double.Parse(price));
+                        break;
+                    case "zone3":
+                        CalChargesDelObjZ3(double.Parse(price));
+                        break;
+                    case "zone4":
+                        CalChargesDelObjZ4(double.Parse(price));
+                        break;
+                    default:
+                        Console.WriteLine("Invalid zone entered.");
+                        break;
+                }
+
+            }
+        }
+
     }
 }
