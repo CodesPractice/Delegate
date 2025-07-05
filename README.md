@@ -2,6 +2,7 @@
 This repository contains practical examples demonstrating the use of delegates in C#.NET. It is helpful for anyone who wants to understand how delegates work, with easy-to-follow code.
 
 📁 What's Inside
+
 ✅ Basic Delegates
 Learn how to define and use basic delegates to point to methods and execute them dynamically.
 
